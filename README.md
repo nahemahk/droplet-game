@@ -5,10 +5,15 @@ This is a game I made using as base [libGDX simple game](https://libgdx.com/wiki
 ### Controls
 
 **WASD** - Move
+
 **Shift** - Move faster while pressed
+
 **F** - Toggle fullscreen
+
 **Spacebar** - Pause game
+
 **Enter** - Continue if game over
+
 **ESC** - Exit game
 
 ## How to build
