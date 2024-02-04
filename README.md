@@ -15,6 +15,18 @@ This is a game I made using as base [libGDX simple game](https://libgdx.com/wiki
 
 Requirements: [OpenJDK 17](https://www.azul.com/downloads/?version=java-17-lts&architecture=x86-64-bit&package=jdk#zulu) or newer versions.
 
-Windows: ```gradlew.bat dist jpackageImage```
+### Windows
 
-Linux/MacOSX: ```./gradlew dist jpackageImage``` The first time you need to enable execution perms: ```chmod +x gradlew```
+```gradlew.bat dist jpackageImage```
+
+### Linux/MacOSX
+
+The first time you need to enable execution perms
+
+```chmod +x gradlew```
+
+Now you can enter
+
+```./gradlew dist jpackageImage```
+
+*The desktop distribution is in desktop/build/jpackage*
