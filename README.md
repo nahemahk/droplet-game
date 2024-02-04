@@ -1,6 +1,6 @@
 ## Droplet Game
 
-This is a game I made using as base (libGDX simple game)[https://libgdx.com/wiki/start/a-simple-game].
+This is a game I made using as base [libGDX simple game](https://libgdx.com/wiki/start/a-simple-game).
 
 ### Controls
 
@@ -13,7 +13,7 @@ This is a game I made using as base (libGDX simple game)[https://libgdx.com/wiki
 
 ## How to build
 
-Requirements: (OpenJDK 17)[https://www.azul.com/downloads/?version=java-17-lts&architecture=x86-64-bit&package=jdk#zulu] or newer versions.
+Requirements: [OpenJDK 17](https://www.azul.com/downloads/?version=java-17-lts&architecture=x86-64-bit&package=jdk#zulu) or newer versions.
 
 Windows: ```gradlew.bat dist jpackageImage```
 
