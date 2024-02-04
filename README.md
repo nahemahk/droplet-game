@@ -22,7 +22,7 @@ Requirements: [OpenJDK 17](https://www.azul.com/downloads/?version=java-17-lts&a
 
 ### Windows
 
-```gradlew.bat dist jpackageImage```
+```gradlew.bat jpackageImage```
 
 ### Linux/MacOSX
 
@@ -32,6 +32,6 @@ The first time you need to enable execution perms
 
 Now you can enter
 
-```./gradlew dist jpackageImage```
+```./gradlew jpackageImage```
 
 *The desktop distribution is in desktop/build/jpackage*
