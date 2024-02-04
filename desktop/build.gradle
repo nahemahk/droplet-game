@@ -1,0 +1,79 @@
+plugins {
+    id "org.beryx.runtime" version "1.13.0"
+    id "java"
+}
+
+sourceCompatibility = 17
+
+sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.main.resources.srcDirs = ["../assets"]
+
+mainClassName = "hk.nahema.dropletgame.DesktopLauncher"
+def osName = System.getProperty("os.name").toLowerCase(Locale.ROOT)
+project.ext.assetsDir = new File("../assets")
+
+import org.gradle.internal.os.OperatingSystem
+
+tasks.register("rungame", JavaExec) {
+    dependsOn classes
+    mainClass = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+
+    if (OperatingSystem.current() == OperatingSystem.MAC_OS) {
+        jvmArgs += "-XstartOnFirstThread"
+    }
+}
+
+tasks.register("debug", JavaExec) {
+    dependsOn classes
+    mainClass = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+    debug = true
+}
+
+tasks.register("dist", Jar) {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    manifest { attributes "Main-Class": project.mainClassName }
+    dependsOn configurations.runtimeClasspath
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+    destinationDirectory = file("$buildDir/lib")
+    archiveFileName.set(appName + ".jar")
+    doLast { file(archiveFile).setExecutable(true, false) }
+}
+
+jpackageImage.dependsOn dist
+dist.dependsOn classes
+
+tasks.jpackageImage.doNotTrackState("This task both reads from and writes to the build folder.")
+
+runtime {
+    options = ["--strip-debug",
+               "--compress", "1",
+               "--no-header-files",
+               "--no-man-pages",
+               "--strip-native-commands",
+               "--vm", "server"]
+    modules = ["jdk.unsupported"]
+    distDir.set(file(project.layout.buildDirectory))
+    jpackage {
+        imageName = appName
+	    mainJar = appName + ".jar"
+        if (osName.contains("windows")) {
+            imageOptions = ["--icon", file("icons/windows.ico")]
+        } else if (osName.contains("linux")) {
+            imageOptions = ["--icon", file("icons/linux.png")]
+        } else if (osName.contains("mac")) {
+            imageOptions = ["--icon", "icons/macosx.icns", "--java-options", "\"-XstartOnFirstThread\""]
+        }
+    }
+}
+
+eclipse.project.name = appName + "-desktop"
+
