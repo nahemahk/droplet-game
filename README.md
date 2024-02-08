@@ -26,11 +26,11 @@ Requirements: [OpenJDK 17](https://www.azul.com/downloads/?version=java-17-lts&a
 
 *The JAR is located in desktop/build/lib*
 
-### Windows
+### Windows Portable
 
 ```gradlew.bat jpackageImage```
 
-### Linux/MacOSX
+### Linux Package / MacOSX App
 
 The first time you need to enable execution perms
 
@@ -40,4 +40,4 @@ Now you can enter
 
 ```./gradlew jpackageImage```
 
-*The desktop distribution is located in desktop/build/jpackage*
+*Platform distributions are located in desktop/build/jpackage*
