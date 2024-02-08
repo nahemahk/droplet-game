@@ -30,7 +30,7 @@ Requirements: [OpenJDK 17](https://www.azul.com/downloads/?version=java-17-lts&a
 
 ```gradlew.bat jpackageImage```
 
-### Linux Package / MacOSX App
+### Linux Package / MacOS App
 
 The first time you need to enable execution perms
 
