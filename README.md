@@ -20,6 +20,12 @@ This is a game I made using as base [libGDX simple game](https://libgdx.com/wiki
 
 Requirements: [OpenJDK 17](https://www.azul.com/downloads/?version=java-17-lts&architecture=x86-64-bit&package=jdk#zulu) or newer versions.
 
+### JAR (Java Runnable)
+
+```gradlew.bat shadowJar```
+
+*The JAR is located in desktop/build/lib*
+
 ### Windows
 
 ```gradlew.bat jpackageImage```
@@ -34,4 +40,4 @@ Now you can enter
 
 ```./gradlew jpackageImage```
 
-*The desktop distribution is in desktop/build/jpackage*
+*The desktop distribution is located in desktop/build/jpackage*
