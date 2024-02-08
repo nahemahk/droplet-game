@@ -106,7 +106,7 @@ runtime {
         } else if (osName.contains('linux')) {
             imageOptions = ['--icon', file('icons/linux.png')]
         } else if (osName.contains('mac')) {
-            imageOptions = ['--icon', 'icons/macosx.icns', '--java-options', '"-XstartOnFirstThread"']
+            imageOptions = ['--icon', 'icons/macos.icns', '--java-options', '"-XstartOnFirstThread"']
         }
     }
 }
